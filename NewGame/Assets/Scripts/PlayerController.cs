@@ -23,6 +23,13 @@ public class PlayerController : MonoBehaviour
         moveInput = value.Get<Vector2>();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "Door")
+            Destroy(collision.gameObject);
+        SceneManager.LoadScene("Scene_door1" + collision.name);
+        Debug.Log("충돌 확인");
+    }
     public void OnJump(InputValue value)
     {
         if (value.isPressed)
