@@ -5,7 +5,7 @@ public class MyNewScripts : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("ㅈㅂㄵ");
+        
     }
     //{
     //    Debug.Log("안녕하세여");
