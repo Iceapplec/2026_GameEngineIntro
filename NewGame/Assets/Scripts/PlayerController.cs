@@ -10,9 +10,13 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 7f;
     public float jumpForce = 7f;
     private Rigidbody2D rb;
+    private Animator myAnimatior;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        myAnimatior = GetComponent<Animator>();
+        myAnimatior.SetBool("move", false);
+
     }
     public void OnMove(InputValue value)
     {
@@ -35,6 +39,15 @@ public class PlayerController : MonoBehaviour
         else if(moveInput.x < 0)
         {
             transform.localScale = new Vector3(-1, 1,1);
+        }
+
+        if(moveInput.magnitude  > 0)
+        {
+            myAnimatior.SetBool("move", true);
+        }
+        else
+        {
+            myAnimatior.SetBool("move", false);
         }
         transform.Translate(Vector3.right * moveSpeed * moveInput.x * Time.deltaTime);
     }
