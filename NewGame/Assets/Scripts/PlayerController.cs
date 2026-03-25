@@ -25,10 +25,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Door")
-            Destroy(collision.gameObject);
-        SceneManager.LoadScene("Scene_door1" + collision.name);
-        Debug.Log("충돌 확인");
+        if (collision.name == "Death")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else
+        {
+            SceneManager.LoadScene("PlayScene_" + collision.name);
+        }
+
     }
     public void OnJump(InputValue value)
     {
